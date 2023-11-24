@@ -53,8 +53,11 @@ fn main() {
        러스트는 변수를 또 선언할때 먼저 선언한건 가려진다
        이건 보통 하나의 값에서 타입만 바꾸고 싶을때 사용한다.
        guess_str, guess_int 이렇게 안하려고.
+
+       turbofish는 제네릭 타입을 명시할때 사용한다.
+       ::<> 로 표기하다.
     */
-    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+    let guess = guess.trim().parse::<u32>().expect("Please type a number!");
 
     /*
        JavaScript의 template literal과 비슷
