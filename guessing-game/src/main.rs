@@ -22,7 +22,6 @@ fn main() {
         1~101 사이의 난수를 생성한다.
     */
     let secret_number = rand::thread_rng().gen_range(1..101);
-    println!("The secret number is: {}", secret_number);
 
     loop {
         println!("Please input your guess.");
@@ -59,7 +58,11 @@ fn main() {
            turbofish는 제네릭 타입을 명시할때 사용한다.
            ::<> 로 표기하다.
         */
-        let guess = guess.trim().parse::<u32>().expect("Please type a number!");
+        // let guess = guess.trim().parse::<u32>().expect("Please type a number!");
+        let guess = match guess.trim().parse::<u32>() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         /*
            JavaScript의 template literal과 비슷
