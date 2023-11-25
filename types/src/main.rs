@@ -85,5 +85,5 @@ fn main() {
        런타임에서 에러가 발생하여 panic이 발생한다.
        index out of bounds: the length is 5 but the index is 8
     */
-    println!("The value of frist is: {}", a[8]);
+    // println!("The value of frist is: {}", a[8]);
 }
