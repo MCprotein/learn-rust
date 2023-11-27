@@ -20,9 +20,9 @@ pub fn reference_borrow() {
       불변참조자를 가지고 있을때는 가변참조자를 만들 수 없다고 한다.
     */
     let mut s = String::from("hello");
-    let r1 = &s;
-    let r2 = &s;
-    let r3 = &mut s;
+    let _r1 = &s;
+    let _r2 = &s;
+    let _r3 = &mut s;
 
     /*
      러스트는 댕글링 포인터를 허용하지 않는다.
