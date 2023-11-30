@@ -31,7 +31,7 @@ Cargo는 러스트의 빌드 시스템 및 패키지 매니저이다.
 
 toml(Tom's Obvious, Minimal Language)은 Cargo의 환경설정 포맷이다.
 
-러스트에서는 코드의 패키지를 크레이트(create)라고 부른다.
+러스트에서는 코드의 패키지를 크레이트(crate)라고 부른다.
 
 빌드 명령어
 
