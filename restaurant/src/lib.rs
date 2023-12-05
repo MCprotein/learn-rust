@@ -1,14 +1,4 @@
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-        pub fn seat_at_table() {}
-    }
-    pub mod serving {
-        fn take_order() {}
-        fn serve_order() {}
-        fn take_payment() {}
-    }
-}
+mod front_of_house;
 
 /*
     use는 hosting 모듈이 크레이트 루트에서 정의된것처럼 특정 스코프에만 해당하는 바로가기를 만든다.
@@ -24,10 +14,13 @@ mod front_of_house {
     pub use로 가져온 모듈을 다시 내보낼 수 있다.
     restautant::front_of_house::hosting::add_to_waitlist(); 를 restaurant::hosting::add_to_waitlist(); 로 사용할 수 있다.
 */
-// use crate::front_of_house::hosting;
-pub use crate::front_of_house::hosting::add_to_waitlist;
+use crate::front_of_house::hosting;
+use rand::Rng;
 use std::collections::HashMap as MyHashMap;
-
+/* *은 glob 연산자인데 다가져온다. */
+use std::collections::*;
+/* {}로 한 번에 가져올 수 있다. self는 그 자신을 가져오는 것이므로, 아래 코드는 std, std::fmt, std::io 를 가져온다. */
+use std::{self, fmt, io};
 pub fn eat_at_restaurant() {
     /*
        절대경로
@@ -38,7 +31,7 @@ pub fn eat_at_restaurant() {
 
     // crate::front_of_house::hosting::add_to_waitlist();
     // hosting::add_to_waitlist();
-    add_to_waitlist();
+    hosting::add_to_waitlist();
     /*
        상대경로
        eat_at_restaurant 함수와 같은 모듈 내에서 시작
@@ -48,11 +41,21 @@ pub fn eat_at_restaurant() {
 
     let mut map = MyHashMap::new();
     map.insert(1, 2);
+
+    let _secret_number = rand::thread_rng().gen_range(1..=100);
 }
 
 mod customer {
     pub fn eat_at_restaurant() {
         // super::hosting::add_to_waitlist();
-        super::add_to_waitlist();
+        super::hosting::add_to_waitlist();
     }
 }
+
+// fn function1() -> fmt::Result {
+//     // --snip--
+// }
+
+// fn function2() -> io::Result<()> {
+//     // --snip--
+// }
