@@ -1,12 +1,15 @@
 mod data_type;
+mod traits;
 
 use self::data_type::main::{largest_char, largest_i32, Point};
+use self::traits::main::{Summarizable, Tweet};
 /*
     제네릭은 monomorphization이라는 과정을 통해 컴파일 타임에 구체화된다.
     따라서 타입을 명시적으로 정의하는것과 비교했을때 성능 차이가 없다.
 */
 fn main() {
     date_type_run();
+    traits_run();
 }
 
 fn date_type_run() {
@@ -26,5 +29,16 @@ fn date_type_run() {
         integer_and_float.get_x(),
         integer_and_float.get_y()
     );
-    print!("{}", both_float.distance_from_origin());
+    println!("{}", both_float.distance_from_origin());
+}
+
+fn traits_run() {
+    let tweet = Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from("of course, as you probably already know, people"),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("1 new tweet: {}", tweet.summary());
 }
