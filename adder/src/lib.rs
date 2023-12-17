@@ -112,4 +112,17 @@ mod tests {
     fn greater_than_100() {
         Guess::new(200);
     }
+
+    #[test]
+    /*
+       아래처러 Generic type을 사용하는 경우, 반환값.is_err() 메소드로 검증한다.
+       assert!(value.is_err())
+    */
+    fn generic_test() -> Result<(), String> {
+        if 2 + 2 == 4 {
+            Ok(())
+        } else {
+            Err(String::from("two plus two does not equal four"))
+        }
+    }
 }
