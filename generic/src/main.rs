@@ -1,8 +1,10 @@
 mod data_type;
 mod traits;
 
+use crate::traits::main::Summarizable3;
+
 use self::data_type::main::{largest_char, largest_i32, Point};
-use self::traits::main::{Summarizable, Tweet};
+use self::traits::main::{largest, Pair, Summarizable, Summarizable2, Tweet};
 /*
     제네릭은 monomorphization이라는 과정을 통해 컴파일 타임에 구체화된다.
     따라서 타입을 명시적으로 정의하는것과 비교했을때 성능 차이가 없다.
@@ -41,4 +43,15 @@ fn traits_run() {
     };
 
     println!("1 new tweet: {}", tweet.summary());
+    println!("1 new tweet: {}", tweet.summary2());
+    println!("1 new tweet: {}", tweet.summary3());
+
+    let numbers = vec![1, 2, 3, 4, 5];
+    let largest_result = largest(&numbers);
+    println!("{largest_result}");
+
+    let pair = Pair::new(1, 2);
+    pair.cmp_display();
+    let pair = Pair::new("@", "bb21");
+    pair.cmp_display();
 }
