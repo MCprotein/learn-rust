@@ -19,3 +19,29 @@ $ cargo test -- --help
 $ cargo test -- --show-output
 $ cargo test -- --nocapture
 ```
+
+`#[cfg(test)]`는 `cargo test` 를 실행할때만 컴파일&실행 하라는 의미이다.
+따라서 일반적인 `cargo build` 때에는 테스트가 컴파일되지 않는다. 통합테스트는 다른 디렉토리에 있기때문에 해당 어노테이션이 필요하지 않다.
+cfg는 configuration을 의미하며 인자로 받는 환경에서만 컴파일 & 실행 되도록 한다.
+
+아래 코드에서 internal_adder는 private이지만 use super::\*로 가져올 수 있다.
+
+```rust
+pub fn add_two(a: i32) -> i32 {
+    internal_adder(a, 2)
+}
+
+fn internal_adder(a: i32, b: i32) -> i32 {
+    a + b
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn internal() {
+        assert_eq!(4, internal_adder(2, 2));
+    }
+}
+```
