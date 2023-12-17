@@ -1,17 +1,20 @@
 mod data_type;
+mod lifetime;
 mod traits;
 
 use crate::traits::main::Summarizable3;
 
 use self::data_type::main::{largest_char, largest_i32, Point};
+use self::lifetime::main::struct_lifetime;
 use self::traits::main::{largest, Pair, Summarizable, Summarizable2, Tweet};
 /*
     제네릭은 monomorphization이라는 과정을 통해 컴파일 타임에 구체화된다.
     따라서 타입을 명시적으로 정의하는것과 비교했을때 성능 차이가 없다.
 */
 fn main() {
-    date_type_run();
-    traits_run();
+    // date_type_run();
+    // traits_run();
+    lifetime_run();
 }
 
 fn date_type_run() {
@@ -54,4 +57,8 @@ fn traits_run() {
     pair.cmp_display();
     let pair = Pair::new("@", "bb21");
     pair.cmp_display();
+}
+
+fn lifetime_run() {
+    struct_lifetime();
 }
