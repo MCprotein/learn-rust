@@ -1,5 +1,9 @@
 use std::{thread, time::Duration};
 
+mod iter;
+
+use iter::main::iter;
+
 #[derive(Debug, PartialEq, Copy, Clone)]
 enum ShirtColor {
     Red,
@@ -162,4 +166,6 @@ fn main() {
 
     list.sort_by_key(|r| r.width);
     println!("{:#?}", list);
+
+    iter();
 }
