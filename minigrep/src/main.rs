@@ -11,9 +11,8 @@ fn main() {
        args[0] = 실행 파일의 경로와 이름
        args[1] = 첫번째 인수
     */
-    let args: Vec<String> = env::args().collect();
 
-    let config = Config::build(&args).unwrap_or_else(|err| {
+    let config = Config::build(env::args()).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {err}");
         process::exit(1);
     });

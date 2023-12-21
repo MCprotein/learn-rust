@@ -9,13 +9,23 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn build(args: &[String]) -> Result<Config, &'static str> {
-        if args.len() < 3 {
-            return Err("not enough arguments");
-        }
+    /*
+       https://doc.rust-lang.org/std/env/fn.args.html
+       impl Iterator<Item = String>: 트레이트 바운드를 가진 제네릭 타입
+       impl Trait 구문의 사용을 의미하며 args가 Iterator 타입을 구현하고 String 아이템을 반환하는 어떤 타입이든 될 수 있음을 나타낸다.
+    */
+    pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
+        args.next();
 
-        let query = args[1].clone();
-        let file_path = args[2].clone();
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a query string"),
+        };
+
+        let file_path = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a file path"),
+        };
 
         /*
          IGNORE_CASE=0 cargo run -- to poem.txt
@@ -51,15 +61,10 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
   search 반환값은 query가 아니라 contents로부터 만들었기때문에 컴파일러가 query에서 만들었다고 착각하지 않게 함
 */
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
-
-    for line in contents.lines() {
-        if line.contains(query) {
-            results.push(line);
-        }
-    }
-
-    results
+    contents
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
 }
 
 pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
