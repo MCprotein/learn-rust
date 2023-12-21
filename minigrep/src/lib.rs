@@ -61,6 +61,10 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
   search 반환값은 query가 아니라 contents로부터 만들었기때문에 컴파일러가 query에서 만들었다고 착각하지 않게 함
 */
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    /*
+       iterator는 for loop과 성능이 거의 동등하다.
+       즉, iterator는 고수준 추상화임에도 불구하고 별도의 런타임 오버헤드가 없다. (제로 오버헤드, 제로 코스트 추상화)
+    */
     contents
         .lines()
         .filter(|line| line.contains(query))
