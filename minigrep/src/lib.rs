@@ -2,7 +2,9 @@ use std::env;
 use std::error::Error;
 use std::fs;
 
+/// Config 설명
 pub struct Config {
+    /// 쿼리
     pub query: String,
     pub file_path: String,
     pub ignore_case: bool,

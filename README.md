@@ -13,6 +13,7 @@ format on save 설정
 
 공식문서
 https://rinthel.github.io/rust-lang-book-ko
+https://doc.rust-lang.org/cargo
 
 <h1>Rust</h1>
 
@@ -97,3 +98,12 @@ cargo doc --open
   현재 모듈에서 시작하며 self, super, 현재 모듈의 식별자를 사용한다.
 
 절대경로, 상대경로 모두 :: 으로 구분된 하나 이상의 식별자로 끝난다.
+
+문서주석
+/// 슬래시 세개. 마크다운 지원
+
+```bash
+# target/doc에 HTML 문서 생성됨
+$ cargo doc
+$ cargo doc --open
+```

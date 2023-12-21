@@ -2,7 +2,6 @@ use std::env;
 use std::process;
 
 use minigrep::Config;
-
 fn main() {
     /* collect는 반복자가 가진 모든 값들을 벡터 형태로 반환한다.
        많은 종류의 콜렉션들이 사용될 수 있기때문에 String타입이라고 명시한다.
