@@ -11,7 +11,7 @@ enum List {
     Cons(i32, Box<List>),
     Nil,
 }
-
+#[derive(Debug)]
 struct MyBox<T>(T);
 
 impl<T> MyBox<T> {
@@ -60,4 +60,19 @@ fn main() {
     // 역참조를 활성화하려면 Deref 트레이트를 구현해야한다.
     // *y는 사실상 *(y.deref()) 과 같다.
     assert_eq!(5, *y);
+
+    // 역참조 강제 변환
+    // 예시 &String -> &str
+
+    let m = MyBox::new(String::from("Rust"));
+    // *m을 호출하면 deref 메소드가 호출되어 &self.0을 반환하는데, 이것은 &String::from("Rust")와 같다. 즉, *m는 m.deref()와 같다.
+    // &m 호출해도 &self.0 반환. 처리 방식은 다르지만 결과는 같다
+    println!("{:?}", *m);
+    hello(&m);
+    // 만약 역참조 강제 변환을 사용하지 않았다면 아래와 같이 해야한다.
+    // hello(&(*m)[..]);
+}
+
+fn hello(name: &str) {
+    println!("Hello, {name}!");
 }
