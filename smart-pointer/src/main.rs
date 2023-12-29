@@ -1,4 +1,7 @@
+mod rc;
+
 use crate::List::{Cons, Nil};
+use rc::{rc, rc_count};
 use std::mem::drop;
 use std::ops::Deref;
 // (1, (2, (3, Nil)))
@@ -98,6 +101,9 @@ fn main() {
     };
     // 역순으로 drop 되므로 other stuff가 my stuff보다 먼저 drop 된다.
     println!("CustomSmartPointers created");
+
+    rc();
+    rc_count();
 }
 
 fn hello(name: &str) {
