@@ -1,4 +1,5 @@
 use crate::List::{Cons, Nil};
+use std::mem::drop;
 use std::ops::Deref;
 // (1, (2, (3, Nil)))
 
@@ -25,6 +26,16 @@ impl<T> Deref for MyBox<T> {
     type Target = T;
     fn deref(&self) -> &Self::Target {
         &self.0
+    }
+}
+
+struct CustomSmartPointer {
+    data: String,
+}
+
+impl Drop for CustomSmartPointer {
+    fn drop(&mut self) {
+        println!("Dropping CustomSmartPointer with data `{}`!", self.data)
     }
 }
 
@@ -71,6 +82,22 @@ fn main() {
     hello(&m);
     // 만약 역참조 강제 변환을 사용하지 않았다면 아래와 같이 해야한다.
     // hello(&(*m)[..]);
+
+    let c = CustomSmartPointer {
+        data: String::from("my stuff"),
+    };
+
+    // scope가 끝나기 전에 drop 하고 싶으면 std::mem::drop 를 가져와서 사용한다.
+    // Drop trait의 drop 메소드를 사용하면 컴파일 에러가 발생한다.
+    // scope를 벗어날때도 drop 메소드를 호출하기때문에 중복 drop이 발생하기 때문이다.
+    // std::mem::drop 메소드를 사용해도 scope 벗어날때 Drop trait의 drop 메소드는 실행된다. - 일관된 동작
+    drop(c);
+
+    let d = CustomSmartPointer {
+        data: String::from("other stuff"),
+    };
+    // 역순으로 drop 되므로 other stuff가 my stuff보다 먼저 drop 된다.
+    println!("CustomSmartPointers created");
 }
 
 fn hello(name: &str) {
