@@ -1,7 +1,11 @@
+mod leak_memory;
 mod rc;
 mod refcell;
+mod tree;
 
+use crate::tree::tree_node;
 use crate::List::{Cons, Nil};
+use leak_memory::leak_memory;
 use rc::{rc, rc_count};
 use std::mem::drop;
 use std::ops::Deref;
@@ -105,6 +109,8 @@ fn main() {
 
     rc();
     rc_count();
+    leak_memory();
+    tree_node();
 }
 
 fn hello(name: &str) {
