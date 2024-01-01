@@ -1,6 +1,8 @@
 mod channel;
+mod shared_state;
 
 use channel::channel;
+use shared_state::mutex_single_thread;
 use std::thread;
 use std::time::Duration;
 fn main() {
@@ -48,5 +50,6 @@ fn main() {
     // v는 이미 생성된 스레드로 이동했으므로 drop할 수 없다.
     // drop(v);
 
-    channel();
+    // channel();
+    mutex_single_thread();
 }
