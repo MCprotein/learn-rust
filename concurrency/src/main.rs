@@ -1,6 +1,8 @@
+mod channel;
+
+use channel::channel;
 use std::thread;
 use std::time::Duration;
-
 fn main() {
     /*
        thread::spawn으로 새로운 스레드를 생성한다.
@@ -45,4 +47,6 @@ fn main() {
 
     // v는 이미 생성된 스레드로 이동했으므로 drop할 수 없다.
     // drop(v);
+
+    channel();
 }
