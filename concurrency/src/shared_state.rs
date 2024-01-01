@@ -30,6 +30,9 @@ pub fn mutex() {
        이 상항에서는 Rc<T> 대신 Arc<T>를 사용한다. 원자적으로 참조 카운트된 타입이다.
        항상 Arc<T>를 사용하지 않는 이유는, 성능이 Rc<T>보다 좋지 않기때문이다.
        Arc<T>와 Rc<T>는 동일한 API를 가지고 있다.
+
+       RefCell<T>를 사용하여 Rc<T> 값을 변경할 수 있는것처럼
+       Mutex<T>를 사용하여 Arc<T> 값을 변경할 수 있다.
     */
     let counter = Arc::new(Mutex::new(0));
     let mut handles = vec![];
