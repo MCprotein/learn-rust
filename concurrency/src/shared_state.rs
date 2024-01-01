@@ -7,7 +7,7 @@
 use std::sync::{Arc, Mutex};
 use std::thread;
 
-pub fn mutex_single_thread() {
+pub fn mutex() {
     let m = Mutex::new(5);
 
     {

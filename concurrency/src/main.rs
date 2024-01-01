@@ -2,7 +2,7 @@ mod channel;
 mod shared_state;
 
 use channel::channel;
-use shared_state::mutex_single_thread;
+use shared_state::mutex;
 use std::thread;
 use std::time::Duration;
 fn main() {
@@ -51,5 +51,5 @@ fn main() {
     // drop(v);
 
     // channel();
-    mutex_single_thread();
+    mutex();
 }
