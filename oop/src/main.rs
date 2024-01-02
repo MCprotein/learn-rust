@@ -1,7 +1,9 @@
 mod post;
+mod syntax;
 
 use oop::{Button, Screen, SelectBox};
 use post::post;
+use syntax::syntax;
 /*
 Duck typing
 오리처럼 행동하면 오리로 봐도 된다.
@@ -40,4 +42,5 @@ fn main() {
     // screen.run();
 
     post();
+    syntax();
 }
