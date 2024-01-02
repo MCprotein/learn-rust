@@ -1,5 +1,7 @@
-use oop::{Button, Screen, SelectBox};
+mod post;
 
+use oop::{Button, Screen, SelectBox};
+use post::post;
 /*
 Duck typing
 오리처럼 행동하면 오리로 봐도 된다.
@@ -28,9 +30,14 @@ fn main() {
 
     screen.run();
 
-    let screen = Screen {
-        components: vec![Box::new(String::from("Hi"))],
-    };
+    /*
+    벡터에 담기는 데이터의 타입이 Draw가 아니기때문에 컴파일 에러가 발생한다.
+     */
+    // let screen = Screen {
+    //     components: vec![Box::new(String::from("Hi"))],
+    // };
+    //
+    // screen.run();
 
-    screen.run();
+    post();
 }
