@@ -70,4 +70,6 @@ fn main() {
     }
     let point = (3, 5);
     print_coordinates(&point);
+
+    let x = None;
 }
