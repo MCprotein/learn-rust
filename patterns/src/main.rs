@@ -1,3 +1,5 @@
+mod syntax;
+use syntax::syntax;
 fn main() {
     /*
     match arms
@@ -70,6 +72,7 @@ fn main() {
     }
     let point = (3, 5);
     print_coordinates(&point);
+    syntax();
 
-    let x = None;
+    // let x = None;
 }
