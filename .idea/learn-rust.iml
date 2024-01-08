@@ -8,12 +8,20 @@
       <sourceFolder url="file://$MODULE_DIR$/generic/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/oop/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/patterns/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/add/add_one/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/add/adder/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/advanced/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/advanced/src/unsafe_rust/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/collections/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/restaurant/target" />
       <excludeFolder url="file://$MODULE_DIR$/smart-pointer/target" />
       <excludeFolder url="file://$MODULE_DIR$/concurrency/target" />
       <excludeFolder url="file://$MODULE_DIR$/generic/target" />
       <excludeFolder url="file://$MODULE_DIR$/oop/target" />
       <excludeFolder url="file://$MODULE_DIR$/patterns/target" />
+      <excludeFolder url="file://$MODULE_DIR$/add/target" />
+      <excludeFolder url="file://$MODULE_DIR$/advanced/target" />
+      <excludeFolder url="file://$MODULE_DIR$/collections/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
