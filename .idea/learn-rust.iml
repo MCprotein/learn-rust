@@ -15,6 +15,7 @@
       <sourceFolder url="file://$MODULE_DIR$/collections/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/web-server/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/web_server_multi_thread/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/web-server-multi-thread/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/restaurant/target" />
       <excludeFolder url="file://$MODULE_DIR$/smart-pointer/target" />
       <excludeFolder url="file://$MODULE_DIR$/concurrency/target" />
@@ -26,6 +27,7 @@
       <excludeFolder url="file://$MODULE_DIR$/collections/target" />
       <excludeFolder url="file://$MODULE_DIR$/web-server/target" />
       <excludeFolder url="file://$MODULE_DIR$/web_server_multi_thread/target" />
+      <excludeFolder url="file://$MODULE_DIR$/web-server-multi-thread/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

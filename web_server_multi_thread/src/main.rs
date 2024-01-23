@@ -1,8 +1,8 @@
-use web_server_multi_thread::ThreadPool;
 use std::io::{prelude::*, BufReader};
 use std::net::{TcpListener, TcpStream};
 use std::time::Duration;
 use std::{fs, thread};
+use web_server_multi_thread::ThreadPool;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
